@@ -1,0 +1,53 @@
+import React, {Component} from 'react';
+import {SplitButton, MenuItem} from 'react-bootstrap';
+
+import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router';
+import logo from '../../../img/menu-icon-black.svg';
+import SidebarLeftPush from './Sidebar';
+
+import './Appbar.css';
+
+class Navigation extends Component {
+    componentDidMount() {
+        console.log(this.props.user);
+    }
+
+    render() {
+
+        return (
+            <div>
+                <div className='upper-nav'>
+                  {/* <SidebarLeftPush/> */}
+                    <img src={logo} className='menu-btn'/>
+                    <div className='user'>
+                        <button>Settings</button>
+                        <img className="avatar" width={40} height={40} src="http://www.mujerhoy.com/noticias/201612/21/media/cortadas/Dalianah-Arekion-kCKI-U21839055910jrB-476x714@MujerHoy.jpg" alt="Image"/>
+                    </div>
+
+                </div>
+                <div className='lower-nav'>
+                    <Link to="all">
+                        <div className='lower-nav-item selected'>
+                            All Activities
+                        </div>
+                    </Link>
+                    <Link>
+                        <div className='lower-nav-item'>Rewarded Duties</div>
+                    </Link>
+                    <Link>
+                        <div className='lower-nav-item'>Leisure Activities</div>
+                    </Link>
+                    <Link>
+                        <div className='lower-nav-item'>Cultural Activities</div>
+                    </Link>
+                    <Link>
+                        <div className='lower-nav-item'>Sport/Adventure Activities
+                        </div>
+                    </Link>
+
+                </div>
+            </div>
+        );
+    }
+}
+export default Navigation;

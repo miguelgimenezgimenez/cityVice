@@ -1,0 +1,14 @@
+.main-body{
+  display: flex;
+}
+
+/*
+.map-container{
+  width: 75%;
+  height: 400px;
+}*/
+.event-data{
+  width: 60%;
+  height: 400px;
+  background-color: red;
+}
