@@ -10,7 +10,7 @@ import '../style.css';
 
 
 class NewUser extends Component {
-  constructor (){
+  constructor () {
     super();
     this.state = {
       emailAddress:'',
@@ -35,9 +35,9 @@ class NewUser extends Component {
 
 
 
-  moveLabel(tag){
+  moveLabel(tag) {
     if (this.state[tag]==='') {
-      return "";
+      return '';
     } else {
       return "active highlight"
     }
@@ -78,13 +78,10 @@ class NewUser extends Component {
         </div>
 
         {/* TODO preguntar si esto va asi*/}
-        <button type="submit" className="button button-block" onClick={()=>this.props.route.createUser(this.state)}>Get Started</button>
-
+        <button type="submit" className="button button-block" onClick={()=>this.props.route.newUser(this.state)}>Get Started</button>
       </div>
     )
   }
 }
 
 export default NewUser;
-
-

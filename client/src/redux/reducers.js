@@ -12,18 +12,18 @@ const userLogged = (state={},action) => {
       return state;
     }
     if (Array.isArray(action.user)) {
-      browserHistory.push('/home');
+      browserHistory.push('/main');
       return action.user[0];
     } else {
-      browserHistory.push('/home');
+      browserHistory.push('/main');
       return action.user;
     }
 
     default :
     return state;
-
   }
 };
+
 const activities = (state=[],action) => {
   switch (action.type) {
     case 'ADD_TO_MAP':

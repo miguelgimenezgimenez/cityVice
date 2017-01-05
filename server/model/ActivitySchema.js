@@ -2,7 +2,15 @@ const mongoose = require('mongoose');
 
 
 const ActivitySchema =  new mongoose.Schema({
-  name: {
+  title: {
+    type: String,
+    required: true
+  },
+  details: {
+    type: String,
+    required: true
+  },
+  type: {
     type: String,
     required: true
   },
@@ -18,7 +26,6 @@ const ActivitySchema =  new mongoose.Schema({
 });
 
 const activity = mongoose.model('activity', ActivitySchema);
-
 
 
 

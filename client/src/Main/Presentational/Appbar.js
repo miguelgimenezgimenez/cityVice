@@ -9,7 +9,6 @@ import './Appbar.css';
 
 class Navigation extends Component {
     componentDidMount() {
-        console.log(this.props.user);
     }
 
     render() {
@@ -17,8 +16,12 @@ class Navigation extends Component {
         return (
             <div>
                 <div className='upper-nav'>
-                  {/* <SidebarLeftPush/> */}
-                    <img src={logo} className='menu-btn'/>
+                    <Link to="createactivity">
+                        <button>
+                          Create Activity
+                        </button>
+                    </Link>
+
                     <div className='user'>
                         <button>Settings</button>
                         <img className="avatar" width={40} height={40} src="http://www.mujerhoy.com/noticias/201612/21/media/cortadas/Dalianah-Arekion-kCKI-U21839055910jrB-476x714@MujerHoy.jpg" alt="Image"/>

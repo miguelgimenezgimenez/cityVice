@@ -1,15 +1,15 @@
-const activity = require('../model/UserSchema');
+const Activity = require('../model/UserSchema');
 
 
 exports.createActivity = function () {
   const data = this.request.body.data;
   console.log(data);
 
-  const newActivity = new user({
+  const newActivity = new Activity({
     name: data.firstName,
     email:data.emailAddress
   });
-  return newUser.save()
+  return newActivity.save()
     .then(function () {
       this.response.body = data;
     }.bind(this))

@@ -9,6 +9,6 @@ router.get('/', function  () {
 router.get('/home',user.login);
 router.post('/login', user.login);
 router.post('/newuser', user.newUser);
-router.post('/create-activity', activity.createActivity);
+router.post('/createActivity', activity.createActivity);
 
 module.exports=router;

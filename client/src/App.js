@@ -6,9 +6,11 @@ import NewUser from './Login/presentational/NewUser';
 import Existing from './Login/presentational/Existing';
 import './App.css';
 import Login from './Login/Login';
-import {existingUser, newUser} from './redux/actions';
+import {existingUser, newUser, createActivity} from './redux/actions';
 import Main from './Main/Main';
-import AllActivities from './Main/Activities/AllActivities';
+import AllActivities from './Main/Containers/AllActivities';
+import Form from './Main/Containers/Form';
+
 
 class App extends Component {
     render() {
@@ -16,11 +18,12 @@ class App extends Component {
             <div className="App">
                 <Router history={browserHistory}>
                     <Route path='/' component={Login}>
-                        <Route path='/newuser' createUser={this.props.newUser} component={NewUser}/>
+                        <Route path='/newuser' newUser={this.props.newUser} component={NewUser}/>
                         <Route path='/existing' login={this.props.existingUser} component={Existing}/>
                     </Route>
-                    <Route path='/home' component={Main}>
-                      <Route path='/all' component={AllActivities}></Route>
+                    <Route path='/main' component={Main}>
+                      <Route path='/all' component={AllActivities}/>
+                      <Route path='/createactivity' component={Form}/>
                     </Route>
                 </Router>
             </div>
@@ -30,6 +33,7 @@ class App extends Component {
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => ({
     existingUser: (data) => dispatch(existingUser(data)),
-    newUser: (data) => dispatch(newUser(data))
+    newUser: (data) => dispatch(newUser(data)),
+    // createActivity: (data) => dispatch(createActivity(data))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(App);

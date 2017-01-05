@@ -8,9 +8,6 @@ import logo from '../logo.svg';
 import './style.css';
 import {greenBackground} from '../colors';
 
-
-
-
 //New or existing user Buttons Component
 
 const Links = (props) => <div>

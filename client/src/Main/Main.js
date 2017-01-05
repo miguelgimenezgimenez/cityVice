@@ -3,8 +3,8 @@ import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 //local imports
 
-import Appbar from './components/Appbar';
-import Sidebar from './components/Sidebar';
+import Appbar from './Presentational/Appbar';
+import Sidebar from './Presentational/Sidebar';
 
 class Main extends Component {
   componentDidMount() {}
@@ -13,16 +13,17 @@ class Main extends Component {
     return (
       <div>
         <Appbar user={this.props.user}/>
-        <Sidebar>
+
           {this.props.children}
-        </Sidebar>
 
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
-  return {user: state.userLogged}
+  return {
+    user: state.userLogged,
+  }
 };
 const mapDispatchToProps = (dispatch) => ({});
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

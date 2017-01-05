@@ -6,8 +6,6 @@ import React, {
 import '../style.css';
 
 
-
-
 class Existing extends Component {
   constructor () {
     super();

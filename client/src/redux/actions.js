@@ -28,14 +28,14 @@ export const newUser = (data) => {
 export const fetchActivities = (data) => {
   return {
     type: 'FETCH_ACTIVITIES',
-    url:'all-activities',
+    url:'allActivities',
     method:'GET',
   }
 };
 export const createActivity = (data) => {
   return {
     type: 'CREATE_ACTIVITY',
-    url:'create-activity',
+    url:'createActivity',
     method:'POST',
     data
   }

@@ -11,9 +11,9 @@ import './index.css';
 import apiMiddleWare from './redux/apiMiddleWare';
 
 const store = createStore(reducers, composeWithDevTools(
-  applyMiddleware(apiMiddleWare),
-  // other store enhancers if any
-));
+  applyMiddleware(apiMiddleWare)));
+  
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
