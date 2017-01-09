@@ -6,7 +6,8 @@
   background-color: var(--hipster-orange);
 
 }
-.ui.primary.button:hover, .ui.primary.buttons .button:hover {  background-color: var(--hipster-green);
+.ui.primary.button:hover, .ui.primary.buttons .button:hover {
+  background-color: var(--hipster-green);
 
 }
 .map-container {

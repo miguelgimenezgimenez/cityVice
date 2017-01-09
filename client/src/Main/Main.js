@@ -13,9 +13,7 @@ class Main extends Component {
     return (
       <div>
         <Appbar user={this.props.user}/>
-
           {this.props.children}
-
       </div>
     );
   }

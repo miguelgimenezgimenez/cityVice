@@ -14,16 +14,17 @@ const type = [
   { text: 'Cultural Activity', value: 'cultural' },
   { text: 'Sports/Adventure Activity', value: 'sports' },
 ]
+let marker;
+const latLng={};
 
 class FormExampleOnSubmit extends Component {
   constructor () {
     super();
     this.state = {
       formData: {},
-      coords:{},
+      latLng:{},
     };
   }
-
 
   handleChange (e, { value }) {
     this.setState({ value })
@@ -36,38 +37,37 @@ class FormExampleOnSubmit extends Component {
     data.coords=this.state.coords;
     this.setState({ formData:formData })
     this.props.createActivity(data);
-
   }
 
-  handleClick(mapProps,map,clickEvent) {
-    const coords={};
-      coords.lng=clickEvent.latLng.lng();
-      coords.lat=clickEvent.latLng.lat();
-    this.setState({coords})
+  handleClick(map) {
+    window.google.maps.event.addListener(map, 'click', function (event) {
+      latLng.lng=event.latLng.lng();
+      latLng.lat=event.latLng.lat();
+      this.setState({latLng});
+    }.bind(this));
+
   }
 
   render() {
     const { formData, value } = this.state
     return (
       <Form onSubmit={this.handleSubmit.bind(this)}>
-
         <Form.Group widths='equal'>
           <Form.Input name='title' placeholder='Title' />
           <Form.Select  name='activityType' options={type} placeholder='Activity Type' />
         </Form.Group>
-
         <Form.Group widths='2'>
           <Form.Field>
-
             <div className='map-container'>
-              <MapContainer google={window.google} markers={[this.state]} handleClick={this.handleClick.bind(this)}></MapContainer>
+              <MapContainer
+                markers={[this.state]}
+                handleClick={this.handleClick.bind(this)}>
+              </MapContainer>
             </div>
           </Form.Field>
-
         </Form.Group>
         <Form.TextArea name='details'  placeholder='Activity Details' rows='3' />
         <Button primary type='submit'>Submit</Button>
-
       </Form>
     )
   }

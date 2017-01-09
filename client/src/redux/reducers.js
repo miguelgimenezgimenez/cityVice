@@ -5,7 +5,6 @@ import { browserHistory} from 'react-router';
 
 const userLogged = (state={},action) => {
   switch (action.type) {
-
     case 'LOGIN':
     //todo refactor
     if (action.user.length === 0) {
@@ -18,27 +17,34 @@ const userLogged = (state={},action) => {
       browserHistory.push('/main');
       return action.user;
     }
-
     default :
     return state;
   }
 };
+const filter =(state=[],action)=>{
+  switch (action.type) {
+    case 'FILTER_ACTIVITIES':
+    return action.polygon;
+
+  }
+  return state;
+  
+}
 
 const activities = (state=[],action) => {
   switch (action.type) {
-    case 'ADD_TO_MAP':
-    return state;
-    default :
-    return state;
+    case 'ADD_ACTIVITIES':
+    return action.data;
+    default:
+    return state
   }
-
 };
 
 
 
 // Combining both reducers
 const reducers = combineReducers({
-  userLogged,activities
+  userLogged,activities,filter
 });
 
 export default reducers;

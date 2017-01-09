@@ -29,19 +29,7 @@
   width: 45px;
 }
 
-button {
-  background-color: var(--hipster-orange);
-  border-radius: 5px;
-  color: white;
-  margin-left: 30px;
-  height: 40px;
-  padding: 10px;
-  z-index: 1000;
 
-  /*text-shadow:none !important;  */
-  border:none !important;
-  box-shadow:none !important;
-}
 
 .lower-nav {
   height: 40px;

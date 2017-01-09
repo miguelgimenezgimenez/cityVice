@@ -1,10 +1,10 @@
-const user = require('../model/UserSchema');
+const User = require('../model/UserSchema');
+
 
 
 exports.newUser = function () {
-
   const data = this.request.body.data;
-  const newUser = new user({
+  const newUser = new User({
     name: data.firstName,
     email:data.emailAddress
   });
@@ -21,7 +21,7 @@ exports.newUser = function () {
 
 exports.login = function () {
   const person = this.request.body;
-  return user.find({
+  return User.find({
     email:person.data.emailAddress
   })
     .then(function (content) {

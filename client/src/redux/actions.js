@@ -25,11 +25,27 @@ export const newUser = (data) => {
   }
 };
 
+//ACTIVITIES
+export const addActivities = (data) =>{
+  return {
+    type: 'ADD_ACTIVITIES',
+    data
+  }
+}
+
+export const filter = (polygon)=>{
+  return {
+    type:'FILTER_ACTIVITIES',
+    polygon
+  }
+}
+
 export const fetchActivities = (data) => {
   return {
     type: 'FETCH_ACTIVITIES',
-    url:'allActivities',
+    url:'fetchActivities',
     method:'GET',
+    success:addActivities,
   }
 };
 export const createActivity = (data) => {
@@ -37,6 +53,7 @@ export const createActivity = (data) => {
     type: 'CREATE_ACTIVITY',
     url:'createActivity',
     method:'POST',
-    data
+    data,
+    success:login
   }
 };
